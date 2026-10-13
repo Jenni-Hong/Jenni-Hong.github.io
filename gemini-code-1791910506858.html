@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhenyi Hong (Jenni) | Academic Homepage</title>
+    <style>
+        :root {
+            --primary-color: #2b533a;
+            --accent-color: #4a7c59;
+            --highlight-bg: #f3f8f4;
+            --highlight-border: #82b391;
+            --text-main: #2d3748;
+            --text-muted: #64748b;
+            --bg-body: #fcfbf7;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            line-height: 1.65;
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, serif;
+            color: var(--primary-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(252, 251, 247, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            font-family: Georgia, serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.92rem;
+            color: var(--text-main);
+        }
+
+        .hero {
+            max-width: 900px;
+            margin: 3rem auto 2rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .hero-avatar {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background-color: #e2ebe4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            border: 3px solid var(--primary-color);
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(43, 83, 58, 0.12);
+        }
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-text h1 {
+            font-size: 2.1rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+
+        .hero-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-keywords {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            border: 1px solid var(--primary-color);
+            font-size: 0.88rem;
+            font-weight: 500;
+            background: white;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 5rem;
+        }
+
+        section h2 {
+            font-size: 1.45rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            background-color: #eaf2eb;
+            color: var(--primary-color);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.2rem 1.4rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+
+        .card-featured {
+            background: var(--highlight-bg);
+            border: 2px solid var(--highlight-border);
+            position: relative;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.4rem;
+            line-height: 1.4;
+        }
+
+        .card-authors {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-venue {
+            font-size: 0.88rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .badge-status {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #334155;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: 0.4rem;
+        }
+
+        .badge-in-press {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge-under-review {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .hero-links {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Zhenyi Hong (Jenni)</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#interests">Interests & Skills</a></li>
+                <li><a href="#publications">Publications & Presentations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-avatar">
+            <img src="profile.jpg" alt="Zhenyi Hong" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\"font-size:3rem; color:var(--primary-color); font-weight:bold;\">ZH</span>';">
+        </div>
+        <div class="hero-text">
+            <h1>Zhenyi Hong (Jenni)</h1>
+            <div class="hero-title">Project Assistant @ The Education University of Hong Kong (EdUHK)</div>
+            <div class="hero-keywords">
+                Higher Education & Sustainability | Experiential Learning | Transformative Learning | Comparative Education | AI in Education
+            </div>
+            <div class="hero-links">
+                <a href="mailto:zhenyihong.jenni@gmail.com" class="btn btn-primary">✉ zhenyihong.jenni@gmail.com</a>
+                <a href="https://www.linkedin.com/in/zhenyihong/" target="_blank" class="btn">🔗 LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-text">
+                <p>
+                    I hold a Master of Arts in Education for Sustainability from <strong>The Education University of Hong Kong (EdUHK)</strong>. Driven by a deep curiosity for innovative pedagogy and educational policy, I am an active, highly adaptable researcher who thrives on taking on new challenges and exploring emerging trends in global higher education.
+                </p>
+                <p>
+                    Currently, I serve as a <strong>Project Assistant</strong> at EdUHK, where I lead key operational and research activities for a flagship, university-wide Sustainable Development Goals (SDGs) experiential learning initiative funded by the Central Reserve Allocation Committee (CRAC). My work bridges research design, learning analytics, qualitative reflections, and stakeholder engagement to foster students' sustainability competencies.
+                </p>
+            </div>
+        </section>
+
+        <section id="interests">
+            <h2>Research Interests & Methodological Skills</h2>
+            <div class="card">
+                <h3 style="font-size: 1rem; font-family: -apple-system, sans-serif; margin-bottom: 0.5rem; color: var(--primary-color);">Research Interests</h3>
+                <div class="tags-container">
+                    <span class="tag">Higher Education & Sustainability</span>
+                    <span class="tag">Experiential Learning</span>
+                    <span class="tag">Comparative Education</span>
+                    <span class="tag">AI & Assessment</span>
+                    <span class="tag">Transformative Learning</span>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 1rem;">
+                <h3 style="font-size: 1rem; font-family: -apple-system, sans-serif; margin-bottom: 0.5rem; color: var(--primary-color);">Research & Technical Skills</h3>
+                <p style="font-size: 0.92rem; color: #334155; margin-bottom: 0.4rem;">
+                    <strong>Qualitative Methods:</strong> Semi-structured Interviews, Focus Groups, Thematic Analysis, Image-based Coding, Codebook Development.
+                </p>
+                <p style="font-size: 0.92rem; color: #334155; margin-bottom: 0.4rem;">
+                    <strong>Quantitative Methods:</strong> SPSS (Regression, Correlation, T-tests, Descriptive Statistics), Survey Design & Validation.
+                </p>
+                <p style="font-size: 0.92rem; color: #334155;">
+                    <strong>Tools & Educational Tech:</strong> Moodle Learning Analytics, Canvas, Covidence, MemoQ, Course Design.
+                </p>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Publications & Presentations</h2>
+
+            <div class="card card-featured">
+                <span class="featured-badge">★ Featured Publication</span>
+                <div class="card-title">
+                    Assessing Sustainable Development Goal (SDG) Competencies: Development and Initial Scale Validation of the SDG Competency Scale for Higher Education
+                </div>
+                <div class="card-authors">
+                    Mendoza, N. B., Luzano, J. G. C., Xiong, W., <strong>Hong, Z.</strong>, & Cheng, W. T. (2026).
+                </div>
+                <div class="card-venue">
+                    <em>Sustainable Development</em> <span class="badge-status badge-in-press">[In Press]</span>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.1rem; margin: 1.8rem 0 0.8rem 0; color: var(--primary-color);">Manuscripts Under Review</h3>
+
+            <div class="card">
+                <div class="card-title">
+                    Combining Objective and Self-Report Assessment of Sustainable Development Goal (SDG) Literacy: Development and Validation of the Brief SDG Literacy Scale
+                </div>
+                <div class="card-authors">
+                    Mendoza, N. B., <strong>Hong, Z.</strong>, Luzano, J. G. C., Cheng, W. T., & Xiong, W. (2026).
+                </div>
+                <div class="card-venue">
+                    <em>Sustainable Development</em> <span class="badge-status badge-under-review">[Under Review]</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    University Students’ Perceptions on Gender Inequality and Vision for Reform: An Epistemic Network Analysis
+                </div>
+                <div class="card-authors">
+                    Cheng, W. T., Yang, X., Mendoza, N. B., Lee, S., <strong>Hong, Z.</strong>, & Xiong, W. (2026).
+                </div>
+                <div class="card-venue">
+                    <em>Gender and Education</em> <span class="badge-status badge-under-review">[Under Review]</span>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.1rem; margin: 1.8rem 0 0.8rem 0; color: var(--primary-color);">Conference Presentations & Posters</h3>
+
+            <div class="card">
+                <div class="card-title">
+                    Rethinking Sustainability Competency Development in the Age of AI: Understanding Shared Challenges for Sino-European Higher Education
+                </div>
+                <div class="card-authors">
+                    <strong>Hong, Z.</strong>, Xiong, W., Mendoza, N. B., & Cheng, W. T. (2026, November 7-8).
+                </div>
+                <div class="card-venue">
+                    <em>5th Tsinghua Higher Education Forum: Shaping the Future Together</em>, University of Milano-Bicocca, Milan, Italy. <span class="badge-status">Poster Presentation</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    What Did Students Experience? A Critical Reflection on a University-Wide SDG Experiential Learning Initiative
+                </div>
+                <div class="card-authors">
+                    <strong>Hong, Z.</strong>, Cheng, W. T., Mendoza, N. B., & Xiong, W. (2026, December 10-11).
+                </div>
+                <div class="card-venue">
+                    <em>Global Education Challenges Conference 2026</em>, The Education University of Hong Kong. <span class="badge-status">Accepted Presentation</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    A Comparative Study of Sustainability Curricula at UNNC and CUHK-Shenzhen
+                </div>
+                <div class="card-authors">
+                    <strong>Hong, Z.</strong> (2026, March 6).
+                </div>
+                <div class="card-venue">
+                    <em>8th China HE Conference: Bridges and Boundaries: China’s Global Higher Education Partnerships</em>, The Education University of Hong Kong.
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Zhenyi Hong (Jenni). All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
